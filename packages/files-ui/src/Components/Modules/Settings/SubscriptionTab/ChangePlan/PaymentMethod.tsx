@@ -151,7 +151,6 @@ const PlanDetails = ({ onClose, goToSelectPlan, goToPlanDetails, onSelectPayment
           onChange={() => setPaymentMethod("crypto")}
           checked={paymentMethod === "crypto"}
           labelClassName={classes.radioLabel}
-          disabled={true}
         />
       </>
       }
@@ -165,16 +164,17 @@ const PlanDetails = ({ onClose, goToSelectPlan, goToPlanDetails, onSelectPayment
       }
       <Divider className={classes.divider} />
       <section className={classes.bottomSection}>
-        {view === "addCard" ? <div>
-          <Typography
-            variant="body1"
-            component="p"
-            onClick={() => setView("selectPaymentMethod")}
-            className={classes.linkButton}
-          >
-            <Trans>Go  back</Trans>
-          </Typography>
-        </div> : <div />
+        {view === "addCard" &&
+          <div>
+            <Typography
+              variant="body1"
+              component="p"
+              onClick={() => setView("selectPaymentMethod")}
+              className={classes.linkButton}
+            >
+              <Trans>Go  back</Trans>
+            </Typography>
+          </div>
         }
         <div className={classes.buttons}>
           <Button
